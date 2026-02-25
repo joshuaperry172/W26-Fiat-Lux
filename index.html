@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture of Cyberpunk | Joshua Fiat Lux</title>
+    <title>Architectures of Cyberpunk | UCLA Fiat Lux</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: auto; }
@@ -15,8 +15,6 @@
             --dark-bg: #050505;
             --flip-speed: 0.7s; 
             --load-time: 7s; 
-            
-            /* Background Hero Image */
             --hero-bg: url('hero_background.png');
         }
 
@@ -76,14 +74,44 @@
         }
         @keyframes fillBar { 0% { width: 0%; } 100% { width: 100%; } }
 
-        /* --- MAIN INTERFACE --- */
+        /* --- HERO SECTION --- */
         #main-interface { opacity: 0; transition: opacity 1.5s ease; }
 
         .hero-section {
+            position: relative;
             width: 100%; height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--hero-bg) center/cover fixed;
             border-bottom: 2px solid var(--neon-blue);
+        }
+
+        /* ABOUT BUTTON */
+        .about-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 12px 24px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--neon-pink);
+            text-decoration: none;
+            letter-spacing: 3px;
+            border: 1px solid var(--neon-pink);
+            background: rgba(0, 0, 0, 0.6);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .about-btn:hover {
+            background: var(--neon-pink);
+            color: white;
+            box-shadow: 0 0 20px var(--neon-pink);
+            animation: btnFlicker 2s infinite;
+        }
+
+        @keyframes btnFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.7; }
         }
 
         .hero-title {
@@ -134,7 +162,6 @@
             border: 1px solid rgba(0, 243, 255, 0.3);
         }
 
-        /* Hover Effect: Flip + Neon Glow Pulse */
         .card:hover .card-inner { 
             transform: rotateY(180deg); 
             border-color: var(--neon-blue);
@@ -155,7 +182,7 @@
 
         .card-front img { 
             width: 100%; height: 100%; object-fit: cover; 
-            filter: none; /* Persistent color */
+            filter: none;
             transition: transform 0.5s ease;
         }
 
@@ -193,8 +220,9 @@
 
     <div id="main-interface">
         <section class="hero-section">
-            <h1 class="hero-title">Joshua Fiat Lux</h1>
-            <div class="hero-subtitle">ARCHITECTURAL_INTEL // TERMINAL_V.1</div>
+            <a href="about_this_project.html" class="about-btn">PROJECT_DOSSIER</a>
+            <h1 class="hero-title">Architectures of Cyberpunk</h1>
+            <div class="hero-subtitle">CYBERPUNK FIAT LUX // UCLA W26</div>
         </section>
 
         <div class="grid-wrapper" id="grid-target">
@@ -202,13 +230,9 @@
                 
                 <a href="sub1.html" class="card">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="sub1F.png" alt="Sector 01 Front">
-                        </div>
+                        <div class="card-front"><img src="sub1F.png" alt="Sector 01 Front"></div>
                         <div class="card-back" style="background-image: url('sub1B.png');">
-                            <div class="card-back-overlay">
-                                <div class="file-note">DATA_FILE: sub1B.png</div>
-                            </div>
+                            <div class="card-back-overlay"><div class="file-note">DATA_FILE: sub1B.png</div></div>
                         </div>
                     </div>
                 </a>
@@ -218,13 +242,9 @@
                         document.write(`
                         <a href="sub${i}.html" class="card">
                             <div class="card-inner">
-                                <div class="card-front">
-                                    <img src="sub${i}F.png" alt="Sector 0${i} Front">
-                                </div>
+                                <div class="card-front"><img src="sub${i}F.png" alt="Sector 0${i} Front"></div>
                                 <div class="card-back" style="background-image: url('sub${i}B.png');">
-                                    <div class="card-back-overlay">
-                                        <div class="file-note">DATA_FILE: sub${i}B.png</div>
-                                    </div>
+                                    <div class="card-back-overlay"><div class="file-note">DATA_FILE: sub${i}B.png</div></div>
                                 </div>
                             </div>
                         </a>`);
@@ -239,7 +259,6 @@
             const loader = document.getElementById('loader');
             const mainInterface = document.getElementById('main-interface');
 
-            // Handle Session Storage so loader only plays once per session
             if (sessionStorage.getItem('uplink_initialized')) {
                 loader.style.display = 'none';
                 mainInterface.style.opacity = '1';
@@ -249,9 +268,7 @@
                     loader.style.opacity = '0';
                     mainInterface.style.opacity = '1';
                     sessionStorage.setItem('uplink_initialized', 'true');
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                    }, 800);
+                    setTimeout(() => { loader.style.display = 'none'; }, 800);
                 }, 7000); 
             }
         });
