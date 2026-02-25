@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Intel | Joshua Fiat Lux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --silver: #e0e0e0;
+            --dark-bg: #050505;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            background-color: var(--dark-bg);
+            background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
+                              url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2070');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            display: flex;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            width: 300px;
+            height: 100vh;
+            position: fixed;
+            border-right: 1px solid var(--neon-blue);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 60px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .back-home {
+            color: var(--neon-pink);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .nav-link {
+            color: var(--silver);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            transition: 0.3s;
+            padding: 10px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--neon-blue);
+            border-bottom: 1px solid var(--neon-blue);
+        }
+
+        /* --- CONTENT AREA --- */
+        main {
+            margin-left: 300px;
+            padding: 100px 80px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        section {
+            margin-bottom: 120px;
+            scroll-margin-top: 100px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--neon-blue);
+            padding-left: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        /* --- CREATORS GRID --- */
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .creator-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .creator-box:hover {
+            border-color: var(--neon-pink);
+            background: rgba(255, 0, 255, 0.05);
+        }
+
+        .creator-name {
+            color: var(--neon-pink);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- CREDITS LIST --- */
+        .credits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .credits-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .credit-role { color: var(--neon-blue); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-home">< RETURN_TO_TERMINAL</a>
+        <a href="#about-project" class="nav-link">01. THE_PROJECT</a>
+        <a href="#about-creators" class="nav-link">02. THE_CREATORS</a>
+        <a href="#credits" class="nav-link">03. CREDITS</a>
+    </nav>
+
+    <main>
+        <section id="about-project">
+            <h2 class="section-title">About Our Project</h2>
+            <p>
+                This terminal serves as an architectural autopsy of the "Cyberpunk" aesthetic. By isolating sectors of the urban landscape, we analyze the intersection of Brutalist concrete structures and the high-tech neon overlays that define a dystopian future.
+            </p>
+            <p>
+                Our goal is to provide a digital archive of structural intel, mapping the physical bones of a world where architecture is both a tool of oppression and a canvas for rebellion.
+            </p>
+        </section>
+
+        <section id="about-creators">
+            <h2 class="section-title">About the Creators</h2>
+            <div class="creators-grid">
+                <div class="creator-box">
+                    <h3 class="creator-name">Joshua</h3>
+                    <p>Lead Architect and System Designer. Responsible for the terminal interface and primary asset decryption.</p>
+                </div>
+                <div class="creator-box">
+                    <h3 class="creator-name">Jiah</h3>
+                    <p>Visual Intelligence Specialist. Focused on the color theory and environmental storytelling within the sector recon.</p>
+                </div>
+                <div class="creator-box">
+                    <h3 class="creator-name">Iva</h3>
+                    <p>Structural Analyst. Her research into high-density industrial zones provided the groundwork for Sector 01-03.</p>
+                </div>
+                <div class="creator-box">
+                    <h3 class="creator-name">Finn</h3>
+                    <p>Tactical Data Coordinator. Finn managed the Sat-Link synchronization and the integration of geographical data packets.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="credits">
+            <h2 class="section-title">Credits</h2>
+            <ul class="credits-list">
+                <li>
+                    <span>Typography & Fonts</span>
+                    <span class="credit-role">Google Fonts (Orbitron/Rajdhani)</span>
+                </li>
+                <li>
+                    <span>Imagery & Assets</span>
+                    <span class="credit-role">Unsplash / Discord Media</span>
+                </li>
+                <li>
+                    <span>Terminal Logic</span>
+                    <span class="credit-role">Cyber-Inter Link V.1</span>
+                </li>
+                <li>
+                    <span>Inspiration</span>
+                    <span class="credit-role">Night City Arasaka Archives</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>
