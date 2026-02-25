@@ -3,208 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Intel | Joshua Fiat Lux</title>
+    <title>About | Fiat Lux Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --neon-blue: #00f3ff;
-            --neon-pink: #ff00ff;
-            --silver: #e0e0e0;
-            --dark-bg: #050505;
+        :root { 
+            --neon-blue: #00f3ff; 
+            --neon-pink: #ff00ff; 
+            --silver: #e0e0e0; 
+            --dark-bg: #050505; 
         }
 
         * { box-sizing: border-box; }
-        body {
-            background-color: var(--dark-bg);
-            background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
-                              url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2070');
+        html { scroll-behavior: auto; }
+        body { 
+            background-color: var(--dark-bg); 
+            color: white; 
+            font-family: 'Rajdhani', sans-serif; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
+        
+        /* Navigation */
+        .back-btn { 
+            position: fixed; 
+            top: 30px; 
+            left: 30px; 
+            z-index: 100; 
+            padding: 12px 24px; 
+            background: rgba(0, 0, 0, 0.9); 
+            border: 1px solid var(--neon-blue); 
+            color: var(--neon-blue); 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: 0.75rem; 
+            text-decoration: none; 
+            letter-spacing: 3px; 
+            transition: all 0.3s ease; 
+            text-transform: uppercase; 
+        }
+        .back-btn:hover { 
+            background: var(--neon-blue); 
+            color: black; 
+            box-shadow: 0 0 20px var(--neon-blue); 
+        }
+        
+        /* Top Section: Split 50/50 */
+        .intel-section { 
+            display: flex; 
+            width: 100%; 
+            height: 100vh; 
+            border-bottom: 2px solid var(--neon-blue); 
+        }
+        
+        .text-container { 
+            width: 50%; 
+            height: 100%; 
+            padding: 120px 60px 60px; 
+            display: flex; 
+            flex-direction: column; 
+            background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%); 
+            overflow-y: auto; 
+            border-right: 2px solid rgba(0, 243, 243, 0.3); 
+        }
+
+        .location-heading { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: clamp(2rem, 4vw, 3.5rem); 
+            color: var(--silver); 
+            text-transform: uppercase; 
+            margin-bottom: 40px; 
+            letter-spacing: 6px; 
+            line-height: 1.2;
+        }
+
+        .intel-body { 
+            font-size: 1.15rem; 
+            line-height: 1.9; 
+            color: #ccc; 
+        }
+        
+        /* Visual Dossier Look */
+        .map-container { 
+            width: 50%; 
+            height: 100%; 
+            background: #000; 
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        .map-frame { 
+            width: 100%; 
+            height: 100%; 
+            background-image: url('hero_background.png'); 
             background-size: cover;
-            background-attachment: fixed;
-            color: white;
-            font-family: 'Rajdhani', sans-serif;
-            margin: 0;
-            display: flex;
+            background-position: center;
+            opacity: 0.6; 
+            filter: grayscale(1) contrast(1.5) brightness(0.5); 
         }
 
-        /* --- NAVIGATION --- */
-        nav {
-            width: 300px;
-            height: 100vh;
-            position: fixed;
-            border-right: 1px solid var(--neon-blue);
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 60px 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .map-overlay { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            pointer-events: none; 
+            background: radial-gradient(circle, transparent 30%, rgba(5, 5, 5, 0.9) 100%); 
+            border-left: 2px solid var(--neon-blue); 
+        }
+        
+        /* Simplified Credits Section */
+        .credits-wrapper { 
+            width: 100%; 
+            padding: 100px 50px; 
+            background: #000; 
+            display: flex; 
+            justify-content: center; 
         }
 
-        .back-home {
-            color: var(--neon-pink);
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.7rem;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
+        .credits-content { 
+            max-width: 800px; 
+            text-align: center; 
+            border-top: 1px solid rgba(255, 0, 255, 0.3); 
+            padding-top: 40px; 
         }
 
-        .nav-link {
-            color: var(--silver);
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            transition: 0.3s;
-            padding: 10px 0;
-            border-bottom: 1px solid transparent;
+        .credits-label { 
+            font-family: 'Orbitron', sans-serif; 
+            color: var(--neon-pink); 
+            font-size: 0.7rem; 
+            letter-spacing: 4px; 
+            display: block; 
+            margin-bottom: 20px; 
         }
 
-        .nav-link:hover {
-            color: var(--neon-blue);
-            border-bottom: 1px solid var(--neon-blue);
+        .credits-text { 
+            font-size: 1.1rem; 
+            color: var(--silver); 
+            line-height: 1.6; 
+            opacity: 0.8; 
         }
 
-        /* --- CONTENT AREA --- */
-        main {
-            margin-left: 300px;
-            padding: 100px 80px;
-            width: 100%;
-            max-width: 1200px;
+        @media (max-width: 900px) {
+            .intel-section { flex-direction: column; height: auto; }
+            .text-container, .map-container { width: 100%; height: 50vh; }
         }
-
-        section {
-            margin-bottom: 120px;
-            scroll-margin-top: 100px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--neon-blue);
-            margin-bottom: 40px;
-            border-left: 5px solid var(--neon-blue);
-            padding-left: 20px;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ccc;
-            max-width: 800px;
-        }
-
-        /* --- CREATORS GRID --- */
-        .creators-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .creator-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            padding: 30px;
-            transition: 0.3s;
-        }
-
-        .creator-box:hover {
-            border-color: var(--neon-pink);
-            background: rgba(255, 0, 255, 0.05);
-        }
-
-        .creator-name {
-            color: var(--neon-pink);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        /* --- CREDITS LIST --- */
-        .credits-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .credits-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .credit-role { color: var(--neon-blue); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="back-home">< RETURN_TO_TERMINAL</a>
-        <a href="#about-project" class="nav-link">01. THE_PROJECT</a>
-        <a href="#about-creators" class="nav-link">02. THE_CREATORS</a>
-        <a href="#credits" class="nav-link">03. CREDITS</a>
-    </nav>
-
-    <main>
-        <section id="about-project">
-            <h2 class="section-title">About Our Project</h2>
-            <p>
-                This terminal serves as an architectural autopsy of the "Cyberpunk" aesthetic. By isolating sectors of the urban landscape, we analyze the intersection of Brutalist concrete structures and the high-tech neon overlays that define a dystopian future.
-            </p>
-            <p>
-                Our goal is to provide a digital archive of structural intel, mapping the physical bones of a world where architecture is both a tool of oppression and a canvas for rebellion.
-            </p>
-        </section>
-
-        <section id="about-creators">
-            <h2 class="section-title">About the Creators</h2>
-            <div class="creators-grid">
-                <div class="creator-box">
-                    <h3 class="creator-name">Joshua</h3>
-                    <p>Lead Architect and System Designer. Responsible for the terminal interface and primary asset decryption.</p>
-                </div>
-                <div class="creator-box">
-                    <h3 class="creator-name">Jiah</h3>
-                    <p>Visual Intelligence Specialist. Focused on the color theory and environmental storytelling within the sector recon.</p>
-                </div>
-                <div class="creator-box">
-                    <h3 class="creator-name">Iva</h3>
-                    <p>Structural Analyst. Her research into high-density industrial zones provided the groundwork for Sector 01-03.</p>
-                </div>
-                <div class="creator-box">
-                    <h3 class="creator-name">Finn</h3>
-                    <p>Tactical Data Coordinator. Finn managed the Sat-Link synchronization and the integration of geographical data packets.</p>
-                </div>
+    <a href="index.html" class="back-btn"> < MAIN_INTERFACE </a>
+    
+    <section class="intel-section">
+        <div class="text-container">
+            <h1 class="location-heading">Fiat Lux <br> Dossier</h1>
+            <div class="intel-body">
+                <p style="color: var(--neon-blue); font-weight: bold;">[ CLASSIFIED PROJECT OVERVIEW ]</p>
+                <p><strong>Fiat Lux</strong> is an architectural interrogation of the modern urban landscape. This terminal serves as a digital archive, documenting the Brutalist and Neo-Modernist intersections of Sector Los Angeles.</p>
+                <p>The project explores the friction between high-tech interfaces and low-life structural decay—the "Cyberpunk" reality hidden within our existing concrete geometry.</p>
             </div>
-        </section>
+        </div>
 
-        <section id="credits">
-            <h2 class="section-title">Credits</h2>
-            <ul class="credits-list">
-                <li>
-                    <span>Typography & Fonts</span>
-                    <span class="credit-role">Google Fonts (Orbitron/Rajdhani)</span>
-                </li>
-                <li>
-                    <span>Imagery & Assets</span>
-                    <span class="credit-role">Unsplash / Discord Media</span>
-                </li>
-                <li>
-                    <span>Terminal Logic</span>
-                    <span class="credit-role">Cyber-Inter Link V.1</span>
-                </li>
-                <li>
-                    <span>Inspiration</span>
-                    <span class="credit-role">Night City Arasaka Archives</span>
-                </li>
-            </ul>
-        </section>
-    </main>
+        <div class="map-container">
+            <div class="map-frame"></div>
+            <div class="map-overlay"></div>
+        </div>
+    </section>
+
+    <div class="credits-wrapper">
+        <div class="credits-content">
+            <span class="credits-label">DEVELOPMENT_CREDITS</span>
+            <p class="credits-text">
+                Designed and developed by <strong>Joshua Perry</strong>. This project was constructed as a visual thesis on urban verticality and digital surveillance aesthetics, utilizing HTML5, CSS3, and high-density geospatial imaging. System uplink remains active.
+            </p>
+        </div>
+    </div>
 
 </body>
 </html>
