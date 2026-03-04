@@ -114,7 +114,7 @@
         /* Simplified Credits Section */
         .credits-wrapper { 
             width: 100%; 
-            padding: 100px 50px; 
+            padding: 80px 40px; 
             background: #000; 
             display: flex; 
             justify-content: center; 
@@ -143,9 +143,41 @@
             opacity: 0.8; 
         }
 
+        /* --- MOBILE REFINEMENTS --- */
         @media (max-width: 900px) {
-            .intel-section { flex-direction: column; height: auto; }
-            .text-container, .map-container { width: 100%; height: 50vh; }
+            .intel-section { 
+                flex-direction: column; 
+                height: auto; 
+            }
+            .text-container { 
+                width: 100%; 
+                height: auto; 
+                padding: 100px 30px 40px; 
+                border-right: none; 
+                border-bottom: 1px solid rgba(0, 243, 243, 0.3); 
+            }
+            .map-container { 
+                width: 100%; 
+                height: 40vh; 
+            }
+            .map-overlay {
+                border-left: none;
+                border-top: 2px solid var(--neon-blue);
+            }
+            .back-btn { 
+                top: 20px; 
+                left: 20px; 
+                padding: 10px 15px; 
+                font-size: 0.65rem; 
+            }
+            .location-heading { 
+                font-size: 2.2rem; 
+                letter-spacing: 3px; 
+                margin-bottom: 20px; 
+            }
+            .credits-wrapper {
+                padding: 60px 20px;
+            }
         }
     </style>
 </head>
@@ -158,7 +190,7 @@
             <h1 class="location-heading">About Our Project</h1>
             <div class="intel-body">
                 <p style="color: var(--neon-blue); font-weight: bold;">[ PROJECT OVERVIEW ]</p>
-                <p>This project was designed for a Fiat Lux Seminar at UCLA in February of 2026. It analyzes the parallels between modern ideas of cyberpunk and the ways they are based on the world we live in. This is done by comapring and contrasting the architecture and infrastructure of LA and the Cyberpunk 2077 world. We hope you enjoy exploring our website!</p>
+                <p>This project was designed for a Fiat Lux Seminar at UCLA in February of 2026 by Joshua, Jiah, Iva, and Finn. It analyzes the parallels between modern ideas of cyberpunk and the ways they are based on the world we live in. This is done by comparing and contrasting the architecture and infrastructure of LA and the Cyberpunk 2077 world. We hope you enjoy exploring our website!</p>
             </div>
         </div>
 
@@ -173,6 +205,14 @@
             <span class="credits-label">DEVELOPMENT_CREDITS</span>
             <p class="credits-text">
                 This project uses images from the Cyberpunk: Edgerunners TV Series as well as clips from the Cyberpunk 2077 video game. The website was designed on GitHub by Joshua Perry with the aid of open-source code and AI. All materials used are for educational and commentary purposes only.
+            </p>
+        </div>
+    </div>
+    <div class="credits-wrapper">
+        <div class="credits-content" style="border-top: none; padding-top: 0;">
+            <span class="credits-label">AI_USE_STATEMENT</span>
+            <p class="credits-text">
+                AI, specifically Google Gemini, was used to design the code formatting this website, including animations, styling, and embedding images and maps. All images, map locations, text, analysis, etc. have come solely from the members of the group; AI was used solely to format and make our website more accessible and interesting.
             </p>
         </div>
     </div>

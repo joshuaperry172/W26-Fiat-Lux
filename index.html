@@ -208,6 +208,21 @@
 
         @media (max-width: 1100px) { .terminal-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 750px) { .terminal-grid { grid-template-columns: 1fr; } }
+
+        /* --- MOBILE ADDITIONS --- */
+        @media (max-width: 600px) {
+            .hero-section { background-attachment: scroll; } /* Better performance on mobile */
+            .hero-title { letter-spacing: 4px; padding: 0 20px; }
+            .hero-subtitle { font-size: 0.7rem; padding: 0 20px; line-height: 1.5; }
+            .about-btn { 
+                top: auto; bottom: 30px; right: 50%; 
+                transform: translateX(50%);
+                font-size: 0.65rem; padding: 10px 18px; 
+            }
+            .grid-wrapper { padding: 60px 20px; }
+            .card { height: 400px; } /* Slightly shorter for mobile scroll */
+            .terminal-grid { gap: 30px; }
+        }
     </style>
 </head>
 <body>
