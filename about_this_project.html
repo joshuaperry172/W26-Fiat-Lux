@@ -111,10 +111,10 @@
             border-left: 2px solid var(--neon-blue); 
         }
         
-        /* Simplified Credits Section */
+        /* Consolidated Credits Section */
         .credits-wrapper { 
             width: 100%; 
-            padding: 80px 40px; 
+            padding: 100px 50px; 
             background: #000; 
             display: flex; 
             justify-content: center; 
@@ -127,13 +127,16 @@
             padding-top: 40px; 
         }
 
+        .credit-block { margin-bottom: 40px; }
+        .credit-block:last-child { margin-bottom: 0; }
+
         .credits-label { 
             font-family: 'Orbitron', sans-serif; 
             color: var(--neon-pink); 
             font-size: 0.7rem; 
             letter-spacing: 4px; 
             display: block; 
-            margin-bottom: 20px; 
+            margin-bottom: 15px; 
         }
 
         .credits-text { 
@@ -141,14 +144,12 @@
             color: var(--silver); 
             line-height: 1.6; 
             opacity: 0.8; 
+            margin: 0;
         }
 
         /* --- MOBILE REFINEMENTS --- */
         @media (max-width: 900px) {
-            .intel-section { 
-                flex-direction: column; 
-                height: auto; 
-            }
+            .intel-section { flex-direction: column; height: auto; }
             .text-container { 
                 width: 100%; 
                 height: auto; 
@@ -156,28 +157,12 @@
                 border-right: none; 
                 border-bottom: 1px solid rgba(0, 243, 243, 0.3); 
             }
-            .map-container { 
-                width: 100%; 
-                height: 40vh; 
-            }
-            .map-overlay {
-                border-left: none;
-                border-top: 2px solid var(--neon-blue);
-            }
-            .back-btn { 
-                top: 20px; 
-                left: 20px; 
-                padding: 10px 15px; 
-                font-size: 0.65rem; 
-            }
-            .location-heading { 
-                font-size: 2.2rem; 
-                letter-spacing: 3px; 
-                margin-bottom: 20px; 
-            }
-            .credits-wrapper {
-                padding: 60px 20px;
-            }
+            .map-container { width: 100%; height: 40vh; }
+            .map-overlay { border-left: none; border-top: 2px solid var(--neon-blue); }
+            .back-btn { top: 20px; left: 20px; padding: 10px 15px; font-size: 0.65rem; }
+            .location-heading { font-size: 2.2rem; letter-spacing: 3px; margin-bottom: 20px; }
+            .credits-wrapper { padding: 60px 20px; }
+            .credit-block { margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -202,19 +187,21 @@
 
     <div class="credits-wrapper">
         <div class="credits-content">
-            <span class="credits-label">DEVELOPMENT_CREDITS</span>
-            <p class="credits-text">
-                This project uses images from the Cyberpunk: Edgerunners TV Series as well as clips from the Cyberpunk 2077 video game. The website was designed on GitHub by Joshua Perry with the aid of open-source code and AI. All materials used are for educational and commentary purposes only.
-            </p>
+            <div class="credit-block">
+                <span class="credits-label">DEVELOPMENT_CREDITS</span>
+                <p class="credits-text">
+                    This project uses images from the Cyberpunk: Edgerunners TV Series as well as clips from the Cyberpunk 2077 video game. The website was designed on GitHub by Joshua Perry with the aid of open-source code and AI. All materials used are for educational and commentary purposes only.
+                </p>
+            </div>
+
+            <div class="credit-block">
+                <span class="credits-label">AI_USE_STATEMENT</span>
+                <p class="credits-text">
+                    AI, specifically Google Gemini, was used to design the code formatting this website, including animations, styling, and embedding images and maps. All images, map locations, text, analysis, etc. have come solely from the members of the group; AI was used solely to format and make our website more accessible and interesting.
+                </p>
+            </div>
         </div>
     </div>
-    <div class="credits-wrapper">
-        <div class="credits-content" style="border-top: none; padding-top: 0;">
-            <span class="credits-label">AI_USE_STATEMENT</span>
-            <p class="credits-text">
-                AI, specifically Google Gemini, was used to design the code formatting this website, including animations, styling, and embedding images and maps. All images, map locations, text, analysis, etc. have come solely from the members of the group; AI was used solely to format and make our website more accessible and interesting.
-            </p>
-        </div>
-    </div>
+
 </body>
 </html>
